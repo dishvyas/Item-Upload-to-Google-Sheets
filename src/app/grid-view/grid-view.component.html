@@ -1,0 +1,43 @@
+<h1>Item Upload Form</h1>
+<div class="container" style="margin-top: 5%">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr *ngFor="let dynamic of dynamicArray; let i = index;">
+                <td>
+                  <input [(ngModel)]="dynamicArray[i].title1" class="form-control" type="text" />
+                </td>
+                <td>
+                  <input [(ngModel)]="dynamicArray[i].title2" class="form-control" type="text" />
+                </td>
+                <td>
+                  <input [(ngModel)]="dynamicArray[i].title3" class="form-control" type="text"/>
+                </td>
+                <td (click)="deleteRow(i)">
+                  <i style="font-size:24px" class="fa">&#xf00d;</i>
+                </td>
+            </tr>
+            <!-- <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td (click)="addRow(i)">
+                <i class="">Add Item</i>
+              </td>
+            </tr> -->
+        </tbody>
+    </table>
+    <td (click)="addRow(i)">
+      <input type="button" value="Add Item" style="background-color: whitesmoke;">
+    </td>
+  </div>
+<div class="submit">
+  <input type="button" value="Submit" style="background-color: whitesmoke;">
+</div>
