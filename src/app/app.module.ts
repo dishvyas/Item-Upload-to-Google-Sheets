@@ -7,6 +7,12 @@ import { GridViewComponent } from './grid-view/grid-view.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PostserviceService } from './services/postservice/postservice.service';
+import { GoogleAuthService } from './services/UserService/GoogleAuth/google-auth.service';
+import { JsLoaderService } from './services/js-loader/js-loader.service';
+import { UserCred } from './Config/config';
+
 
 @NgModule({
   declarations: [
@@ -17,11 +23,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule ,
+    FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [JsLoaderService,
+    GoogleAuthService,
+  PostserviceService,
+UserCred],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

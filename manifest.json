@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "postdata",
+    "description": "Link Spreadsheet",
+    "version": "1.0",
+    "browser_action": {
+    },
+    "permissions": [
+        "https://www.google.com/",
+        "http://www.google.com/"
+    ],
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+}

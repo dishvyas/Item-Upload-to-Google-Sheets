@@ -1,12 +1,12 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
-import { GoogleSpreadsheetsApiService } from '../services/googleapi.service';
+import { GoogleSpreadsheetsApiService } from '../services/UserService/GoogleAuth/googleapi.service';
 import { Note } from './note';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
-import { environment } from '../../environments/environment';
+import { AppConfig } from '../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',

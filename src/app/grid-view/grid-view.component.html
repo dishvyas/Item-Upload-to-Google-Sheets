@@ -1,43 +1,121 @@
-<h1>Item Upload Form</h1>
-<div class="container" style="margin-top: 5%">
-    <table class="table">
+<div style="margin-top: 5%;column-gap: 5px;">
+  <!-- <label for="Number"></label> -->
+  <input type="tel" id="phone" class="form-control" maxlength="10" [(ngModel)]="dynamicArray[0].phonenumber" placeholder="Your Mobile Number" name="phone" (keypress)="numberOnly($event)" style="border-width: 1px; border-color: black; width: 200px;" pattern="[A-Za-z0-9]{1,20}" required>
+</div>
+<div class="table-responsive" style="margin-top: 5%;">
+    <table class="table table-hover table-fixed" style="max-width: 100%;">
         <thead>
             <tr>
-                <th>Item Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Action</th>
+                <th style="width: 20%;"><span style="width: max-content;">ItemName</span></th>
+                <th style="width: 10%;"><span>Quantity</span></th>
+                <th style="width: 10%;"><span>Price/Unit</span></th>
+                <th style="width: 20%;"><span>Measuring Unit</span></th>
+                <th style="width: 7.5%" >Action</th>
             </tr>
         </thead>
         <tbody>
-             <tr *ngFor="let dynamic of dynamicArray; let i = index;">
-                <td>
-                  <input [(ngModel)]="dynamicArray[i].title1" class="form-control" type="text" />
+             <tr *ngFor="let dynamic of dynamicArray; let i = index;" style="max-width: 100%;">
+                <td style="column-width: 30%;">
+                  <!-- <label for="itemname"></label> -->
+                  <input id="name" [(ngModel)]="dynamicArray[i].itemname" class="form-control" type="text" pattern="[A-Za-z0-9]{1,20}" required>
                 </td>
-                <td>
-                  <input [(ngModel)]="dynamicArray[i].title2" class="form-control" type="text" />
+                <td style="column-width: 10%; text-align: center;">
+                  <!-- <label for="quantity"></label> -->
+                  <input id="quantity" type="number" [(ngModel)]="dynamicArray[i].quantity" class="form-control" pattern="[A-Za-z0-9]{1,20}" required>
                 </td>
-                <td>
-                  <input [(ngModel)]="dynamicArray[i].title3" class="form-control" type="text"/>
+                <td style="column-width: 10%;">
+                  <!-- <label for="price"></label> -->
+                  <input id="price" type="number" [(ngModel)]="dynamicArray[i].price" class="form-control" pattern="[A-Za-z0-9]{1,20}" required>
                 </td>
-                <td (click)="deleteRow(i)">
-                  <i style="font-size:24px" class="fa">&#xf00d;</i>
+                <td style="column-width: 10%">
+                  <!-- <label for="unit"></label> -->
+                  <select id="msu" style="text-align: center; max-width:80%; margin-top: 7px; border: 2px; box-shadow: #5433D6;" class="selectu" [(ngModel)]="dynamicArray[i].measuringu" pattern="[A-Za-z0-9]{1,20}" required>
+                    <option value="default">Select Unit</option>
+                    <option value="BAG" style="text-align: center;">Bags</option>
+                    <option value="BAL">Bale</option>
+                    <option value="BDL">Bundles</option>
+                    <option value="BOU">Billions of units</option>
+                    <option value="BOX">Box</option>
+                    <option value="BTL">Bottles</option>
+                    <option value="BUN">Bunches</option>
+                    <option value="CAN">Cans</option>
+                    <option value="CBM">Cubic Meter</option>
+                    <option value="CCM">Cubic Centemeter</option>
+                    <option value="CMS">Centimeter</option>
+                    <option value="CTN">Cartons</option>
+                    <option value="DOZ">Dozen</option>
+                    <option value="DRM">Drum</option>
+                    <option value="GGR">Great gross</option>
+                    <option value="GMS">Grams</option>
+                    <option value="GRS">Gross</option>
+                    <option value="GYD">Gross Yards</option>
+                    <option value="HRS">Hours</option>
+                    <option value="KGS">Kilograms</option>
+                    <option value="KLR">Kiloliter</option>
+                    <option value="KME">Kilometre</option>
+                    <option value="MLT">Mililitre</option>
+                    <option value="MINS">Minutes</option>
+                    <option value="MTR">Meters</option>
+                    <option value="NOS">Numbers</option>
+                    <option value="PAC">Packs</option>
+                    <option value="PCS">Pieces</option>
+                    <option value="PRS">Pairs</option>
+                    <option value="QTL">Quintal</option>
+                    <option value="ROL">Rolls</option>
+                    <option value="SET">Sets</option>
+                    <option value="SQF">Square Feet</option>
+                    <option value="SQM">Square Meters</option>
+                    <option value="SQY">Square Yards</option>
+                    <option value="TBS">Tablets</option>
+                    <option value="TGM">Ten gross</option>
+                    <option value="THD">Thousands</option>
+                    <option value="TON">Tonnes</option>
+                    <option value="TUB">Tubes</option>
+                    <option value="UGS">Us Gallons</option>
+                  </select>
+                </td>
+                <td (click)="deleteRow(i)" style="column-width: 5%">
+                  <i style="font-size:20px; text-align: left; margin-top: 7px;" class="fa">&#xf00d;</i>
                 </td>
             </tr>
-            <!-- <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td (click)="addRow(i)">
-                <i class="">Add Item</i>
-              </td>
-            </tr> -->
         </tbody>
     </table>
-    <td (click)="addRow(i)">
-      <input type="button" value="Add Item" style="background-color: whitesmoke;">
-    </td>
   </div>
-<div class="submit">
-  <input type="button" value="Submit" style="background-color: whitesmoke;">
-</div>
+  <div class="flex-container" style="align-items: center; text-align: center;">
+    <input type="button" class="btn btn-light" (click)="addRow(i)" value="ADD MORE ITEMS" style="margin-right: 5px; border-width: 2px; border-color: black ;">
+    <input id="submit" type="button" class="btn btn-dark" value="SUBMIT" (click)="onSubmit()">
+  </div>
+  <ul class="errorMessages"></ul>
+<script>
+  $(function() {
+    var createAllErrors = function() {
+        var form = $(this);
+        var errorList = $('ul.errorMessages', form);
+        var showAllErrorMessages = function() {
+            errorList.empty();
+
+            //Find all invalid fields within the form.
+            form.find(':invalid').each(function(index, node) {
+
+                //Find the field's corresponding label
+                var label = $('label[for=' + node.id + ']');
+
+                //Opera incorrectly does not fill the validationMessage property.
+                var message = node.validationMessage || 'Invalid value.';
+                errorList
+                    .show()
+                    .append('<li><span>' + label.html() + '</span> ' + message + '</li>');
+            });
+        };
+        $('input[type=submit], button', form).on('click', showAllErrorMessages);
+        $('input[type=text]', form).on('keypress', function(event) {
+            //keyCode 13 is Enter
+            if (event.keyCode == 13) {
+                showAllErrorMessages();
+            }
+        });
+    };
+
+    $('form').each(createAllErrors);
+});
+</script>
