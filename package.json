@@ -26,7 +26,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "fingerprintjs2": "^2.1.0",
-    "googleapis": "27",
+    "googleapis": "39",
     "ng-block-ui": "^2.1.8",
     "ng-gapi": "0.0.73",
     "ngx-cookie-service": "^2.3.0",
